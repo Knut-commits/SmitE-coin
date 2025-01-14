@@ -6,3 +6,5 @@ eee
 skibidi
 
 sigmas sigmas isgmas
+
+smite coin will earn us 10 trillion dollars

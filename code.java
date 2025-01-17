@@ -1,6 +1,6 @@
 public class code (){
     
-    public class(){
-        System.out.println("sigma's assemble");
+    public static void main(String[] args){
+        System.out.println("sigmas assmeble");
     }
 }

@@ -25,8 +25,4 @@ def  mine_pending_transactions(self,Miner_address):
     #now the miner needs rewards    
     self.pending_transactions=[{"from": "network", "to": Miner_address, "amount": 10}]
     
-    def _init_ (self):
-    #we are intializing the blockchain with the genesis Block (first block)
-        self.chain = [self.create_genesis_block()]
-        self.pending_transactions= [] #this is the transactions that need to be mined, starts empty
-        self.difficulty = 4 # this is mining diffculty and this means 4 zeros is required at the end of hash
+

@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS user(
+    user_id INT PRIMARY KEY AUTO INCREMENT,
+    username TEXT NOT NULL,
+    balance DECIMAL(10,2),
+    transaction_count INT NOT NULL,
+)
+
+CREATE TABLE IF NOT EXISTS transactions(
+    transaction_id INT PRIMARY KEY AUTO INCREMENT,
+    sender_id INT NOT NULL,
+    reciever_id INT NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    date_time DATETIME NOT NULL CURRENT_DATETIME,
+)
+

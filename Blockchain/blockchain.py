@@ -11,10 +11,12 @@ def __init__ (self):
 def CreateGenesisBlock():
     return Block(0,"0",[],time.time())
 
+
 def addBlock(self, block):
     # this will add a block to the chain as long as it is valid
     if block.previousHash == self.chain[-1].hash and block.hash.startswith("0" * self.difficulty):#we are checking if the previous hash matches previous hash in chain and if teh 4 zeros are at start of hash
         self.chain.append(block)
+
 def  mine_pending_transactions(self,Miner_address):
     #mines a new block and adds it
     NewBlock = Block(len(self.chain),self.chain[-1].hash,self.pending_transactions)

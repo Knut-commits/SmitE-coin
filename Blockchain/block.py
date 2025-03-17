@@ -1,6 +1,6 @@
 import hashlib
 import time
-import json #crypto currency libarary.
+import json #so we can transport data 
 #nonce means number only used once and is a cyrpto currency term.
 class Block:
     def __init__(self,index,previousHash,transactions,contracts,timestamp = None,nonce=0):
@@ -14,6 +14,6 @@ class Block:
         self.hash = self.calculateHash()  # hash of the block
     def calculateHash(self): # call self
         #Generate SHA 256 hash
-        blockString = json.dumps(self.__dict__,sort_keys = True)
+        blockString = json.dumps(self.__dict__,sort_keys = True)#converts the attributes of the block to a json string
         return hashlib.sha256(blockString.encode()).hexdigest()
     

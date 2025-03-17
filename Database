@@ -1,15 +1,26 @@
-CREATE TABLE IF NOT EXISTS user(
+CREATE TABLE users(
     user_id INT PRIMARY KEY AUTO INCREMENT,
     username TEXT NOT NULL,
     balance DECIMAL(10,2),
-    transaction_count INT NOT NULL,
+    transaction_count INT NOT NULL
 )
 
-CREATE TABLE IF NOT EXISTS transactions(
+CREATE TABLE transactions(
     transaction_id INT PRIMARY KEY AUTO INCREMENT,
     sender_id INT NOT NULL,
     reciever_id INT NOT NULL,
     amount DECIMAL(10,2) NOT NULL,
-    date_time DATETIME NOT NULL CURRENT_DATETIME,
+    date_time DATETIME NOT NULL
 )
 
+
+
+CREATE TABLE daily_transactions(
+    transaction_date DATE NOT NULL,
+    transaction_count DATE NOT NULL
+)
+
+INSERT INTO users(user_id, username, balance, transaction_count)
+VALUES (1, "edison", "edison", 99, 2);
+
+SELECT * FROM users

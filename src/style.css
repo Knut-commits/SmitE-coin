@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: #f4f4f4;
+}
+
+
+
+button:hover {
+    background-color: bisque;
+}
+
+img {
+    float: left;
+    margin-left: 20px; 
+    margin-top: 50px;
+}
+button {
+    float: top;
+    margin-left: 20px;
+    margin-right: 950px;
+    background-color:darkgrey;
+    height: 150px;
+    width: 400px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+

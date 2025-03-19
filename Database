@@ -13,8 +13,6 @@ CREATE TABLE transactions(
     date_time DATETIME NOT NULL
 )
 
-
-
 CREATE TABLE daily_transactions(
     transaction_date DATE NOT NULL,
     transaction_count DATE NOT NULL

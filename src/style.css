@@ -79,10 +79,21 @@ background-size: cover;
     height: 100px;
 }
 
-button:hover {
-    background-color: #3399ff;
+#OGbutton:hover {
+    background-color: #33ffcf;
 }
-
+#button1:hover {
+    background-color: #33ffcf;
+}
+#button2:hover {
+    background-color: #33ffcf;
+}
+#button3:hover {
+    background-color: #33ffcf;
+}
+#buttonInvest:hover {
+    background-color: #ffc533;
+}
 #missionStatement{
     background-color:#2e2e2e;
     color: #d4d4d4;

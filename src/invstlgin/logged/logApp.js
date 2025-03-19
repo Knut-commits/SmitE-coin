@@ -17,7 +17,7 @@ document.body.appendChild(button2);
 
 let button3 = document.createElement('button');
 button3.id = "button3";
-button3.textContent = "Log in    Sign Up";
+button3.textContent = "Hi Investor!";
 
 document.body.appendChild(button3);
 

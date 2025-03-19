@@ -12,7 +12,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     // Check if the entered credentials match the stored ones
     if (enteredUsername === storedUsername && enteredPassword === storedPassword) {
         alert("Login successful! Redirecting...");
-        window.location.href = "dashboard.html"; // Change this to your desired page
+        window.location.href = "logged/logindex.html"; // Change this to your desired page
     } else {
         alert("Invalid username or password. Please try again.");
     }

@@ -26,9 +26,15 @@ CREATE TABLE daily_transactions(
 );
 
 
--- CREATE PROCEDURE fundtransfer(
---     IN sender_id INT,
---     IN receiver_id INT,
---     IN amount DECIMAL(10,2)
--- )
+USE users;
+GO
 
+CREATE PROCEDURE dbo.selectuserdata
+AS
+BEGIN
+    SELECT * FROM dbo.users;
+END;
+GO
+
+EXEC dbo.selectuserdata;
+GO

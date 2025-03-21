@@ -1,26 +1,44 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS daily_transactions;
+
 CREATE TABLE users(
-    user_id INT PRIMARY KEY AUTO INCREMENT,
+    email TEXT NOT NULL,
     username TEXT NOT NULL,
+    passwords TEXT NOT NULL,
     balance DECIMAL(10,2),
     transaction_count INT NOT NULL
-)
+);
 
 CREATE TABLE transactions(
     transaction_id INT PRIMARY KEY AUTO INCREMENT,
     sender_id INT NOT NULL,
     reciever_id INT NOT NULL,
     amount DECIMAL(10,2) NOT NULL,
-    date_time DATETIME NOT NULL
-)
-
-
+    numberofitems DECIMAL(10,2) NOT NULL,
+    transactionprice DECIMAL(10,2) NOT NULL,
+    date_time DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 
 CREATE TABLE daily_transactions(
+    user_id INT PRIMARY KEY AUTO INCREMENT,
     transaction_date DATE NOT NULL,
-    transaction_count DATE NOT NULL
-)
+    transaction_count INT NOT NULL,
+    PRIMARY KEY(user_id, date_time)
+);
 
-INSERT INTO users(user_id, username, balance, transaction_count)
-VALUES (1, "edison", "edison", 99, 2);
 
-SELECT * FROM users
+USE users;
+GO
+
+CREATE PROCEDURE dbo.selectuserdata
+AS
+BEGIN
+    SELECT * FROM dbo.users;
+END;
+GO
+
+EXEC dbo.selectuserdata;
+GO
+
+SELECT * FROM transactions

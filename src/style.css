@@ -1,0 +1,150 @@
+@keyframes buttonClick {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.9); } /* Shrink effect */
+    100% { transform: scale(1); }
+}
+
+button:active {
+    animation: buttonClick 0.2s ease-in-out;
+}
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('background.jpg');
+background-size: cover;
+}
+
+#OGbutton {
+    background-color: #007acc;
+    color: white;
+    font-size: 24px; 
+    padding: 20px 40px; 
+    border: none;
+    border-radius: 15px; 
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    width:250px;
+    height: 100px;
+    
+}
+
+#button1{
+    background-color: #007acc;
+    color: white;
+    font-size: 24px; 
+    padding: 20px 40px; 
+    border: none;
+    border-radius: 15px; 
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 350px;
+    width:250px;
+    height: 100px;
+}
+
+#button2{
+    background-color: #007acc;
+    color: white;
+    font-size: 24px; 
+    padding: 20px 40px; 
+    border: none;
+    border-radius: 15px; 
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 675px;
+    width:250px;
+    height: 100px;
+}
+#button3{
+    background-color: #007acc;
+    color: white;
+    font-size: 24px; 
+    padding: 20px 40px; 
+    border: none;
+    border-radius: 15px; 
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 1000px;
+    width:250px;
+    height: 100px;
+}
+
+#OGbutton:hover {
+    background-color: #33ffcf;
+}
+#button1:hover {
+    background-color: #33ffcf;
+}
+#button2:hover {
+    background-color: #33ffcf;
+}
+#button3:hover {
+    background-color: #33ffcf;
+}
+#buttonInvest:hover {
+    background-color: #ffc533;
+}
+#missionStatement{
+    background-color:#2e2e2e;
+    color: #d4d4d4;
+    font-size: 20px; 
+    padding: 20px 40px; 
+    border: none;
+    border-radius: 15px; 
+    cursor: pointer;
+    position: absolute;
+    right:130px;
+    top:150px;
+    width:425px;
+    height:65px;
+}
+#visionStatement{
+    background-color: #2a2a2a;
+    color: #d4d4d4;
+    font-size: 17px; 
+    padding: 20px 40px; 
+    border: none;
+    border-radius: 15px; 
+    cursor: pointer;
+    position: absolute;
+    right:90px;
+    top:270px;
+    width:500px;
+    height:95px;
+}
+#buttonInvest{
+    background-color: #28a745;  
+    color: #ffffff;  
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    cursor: pointer;
+    width:500px;
+    height:100px;
+    position:absolute;
+    top:425px;
+    right:130px;
+
+}
+
+img {
+    display: block;
+    margin-top: 120px; 
+    margin-left: 75px;
+    width: 425px;
+    height: 425px;
+}
+

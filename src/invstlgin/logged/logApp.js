@@ -30,7 +30,7 @@ document.body.appendChild(img);
 
 let buttonInvest = document.createElement('button');
 buttonInvest.id = "buttonInvest";
-buttonInvest.textContent = "Invest NOW";
+buttonInvest.textContent = "Check your wallet";
 document.body.appendChild(buttonInvest);
 
 
@@ -66,7 +66,7 @@ buttonInvest.addEventListener('click', function(event) {
     event.preventDefault(); 
     document.body.classList.add("fade-out"); 
     setTimeout(() => {
-        window.location.href = "invstlgin/lgn.html";
+        window.location.href = "logWallet/logWallet.html";
     }, 500);
 });
 

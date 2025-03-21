@@ -12,7 +12,7 @@ class Blockchain:
         self.deployed_contracts=[] 
         self.difficulty= 4  # this is minning diffculty and this menas 4 zeros is reuired at teh end of hash
 
-    def CreateGenesisBlock(self):
+    def CreateGenesisBlock(self): 
         return Block(0,"0",[],[],time.time())
 
 
@@ -33,7 +33,7 @@ class Blockchain:
             contract_id = len(self.deployed_contracts) + 1
             self.deployed_contracts[contract_id]= contract
         #now the miner needs rewards    
-        self.pending_transactions=[{"from": "network", "to": miner_address, "amount": 10}]
+        self.pending_transactions=[{ "network",  miner_address,  10}]
         self.pending_contracts=[]
 
     def deploy_contract(self, contract_code):

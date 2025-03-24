@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS daily_transactions;
 
+
 CREATE TABLE users(
     email TEXT NOT NULL,
     username TEXT NOT NULL,

@@ -1,0 +1,127 @@
+@keyframes buttonClick {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+button:active {
+    animation: buttonClick 0.2s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body {
+    background-image: url('background2.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#pfp-display {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px; /* Profile display size */
+    height: 300px; /* Profile display size */
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+button {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.2s ease;
+    z-index: 10; /* Make sure the buttons are clickable */
+}
+
+button:hover {
+    transform: scale(1.2);
+}
+
+#img1 {
+    background-image: url('pfp1.jpg');
+}
+
+#img2 {
+    background-image: url('pfp2.jpg');
+}
+
+#img3 {
+    background-image: url('pfp3.jpg');
+}
+
+#img4 {
+    background-image: url('pfp4.jpg');
+}
+
+#img5 {
+    background-image: url('pfp5.jpg');
+}
+
+#img6 {
+    background-image: url('pfp6.jpg');
+}
+
+button {
+    display: inline-block;
+}
+
+button:hover {
+    transform: scale(1.2);
+}
+
+/* Position buttons */
+#img1 {
+    position:absolute;
+    top: 20px;
+    left:20px;
+}
+
+#img2 {
+    position:absolute;
+    top: 20px;
+    left: 120px;
+}
+
+#img3 {
+    position:absolute;
+    top: 20px;
+    left: 220px;
+}
+
+#img4 {
+    position:absolute;
+    top: 120px;
+    left:20px;
+}
+
+#img5 {
+    position:absolute;
+    top: 120px;
+    left: 120px;
+}
+
+#img6 {
+    position:absolute;
+    top: 120px;
+    left: 220px;
+}

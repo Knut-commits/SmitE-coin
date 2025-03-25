@@ -15,20 +15,30 @@ CREATE TABLE transactions(
     sender_id INT NOT NULL,
     reciever_id INT NOT NULL,
     amount DECIMAL(10,2) NOT NULL,
+    numberofitems DECIMAL(10,2) NOT NULL,
+    transactionprice DECIMAL(10,2) NOT NULL,
     date_time DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE daily_transactions(
     user_id INT PRIMARY KEY AUTO INCREMENT,
     transaction_date DATE NOT NULL,
-    transaction_count DATE NOT NULL,
+    transaction_count INT NOT NULL,
     PRIMARY KEY(user_id, date_time)
 );
 
 
--- CREATE PROCEDURE fundtransfer(
---     IN sender_id INT,
---     IN receiver_id INT,
---     IN amount DECIMAL(10,2)
--- )
+USE users;
+GO
 
+CREATE PROCEDURE dbo.selectuserdata
+AS
+BEGIN
+    SELECT * FROM dbo.users;
+END;
+GO
+
+EXEC dbo.selectuserdata;
+GO
+
+SELECT * FROM transactions

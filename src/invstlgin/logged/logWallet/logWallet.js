@@ -59,7 +59,7 @@ button2.addEventListener('click', function(event) {
     event.preventDefault(); 
     document.body.classList.add("fade-out"); 
     setTimeout(() => {
-        window.location.href = "invstlgin/lgn.html";
+        window.location.href = "../loggedProfile/logProf.html";
     }, 500);
 });
 

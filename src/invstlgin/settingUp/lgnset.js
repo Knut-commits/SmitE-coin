@@ -24,6 +24,7 @@ document.body.appendChild(img6);
 
 let confirm1 = document.createElement('button');
 confirm1.id = "confirm";
+confirm1.textContent = "Confirm";
 document.body.appendChild(confirm1);
 
 let img7 = document.createElement('button');
@@ -69,5 +70,7 @@ img3.addEventListener('click', () => updateProfilePicture(img3));
 img4.addEventListener('click', () => updateProfilePicture(img4));
 img5.addEventListener('click', () => updateProfilePicture(img5));
 img6.addEventListener('click', () => updateProfilePicture(img6));
+
+
 
 

@@ -21,5 +21,5 @@ document.getElementById("signupForm").addEventListener("submit", function(event)
     alert("Account created successfully!");
 
     // Redirect to login page
-    window.location.href = "lgn.html";
+    window.location.href = "settingUp/lgnset.html";
 });

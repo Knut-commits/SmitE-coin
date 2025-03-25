@@ -160,7 +160,7 @@ button:hover {
     height:300px;
     position:absolute;
     right:75px;
-    top:125px;
+    top:160px;
 }
 #accNum{
     width: 300px;
@@ -199,4 +199,12 @@ button:hover {
     top:175px;
     width:350px;
 }
-
+#title{
+    color:aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:bold;
+    font-size: 60px;
+    position:absolute;
+    top: 60px;
+    right:50px;
+}

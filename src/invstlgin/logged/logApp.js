@@ -17,7 +17,7 @@ document.body.appendChild(button2);
 
 let button3 = document.createElement('button');
 button3.id = "button3";
-button3.textContent = "Hi Investor!";
+button3.textContent = "Log out";
 
 document.body.appendChild(button3);
 
@@ -30,7 +30,7 @@ document.body.appendChild(img);
 
 let buttonInvest = document.createElement('button');
 buttonInvest.id = "buttonInvest";
-buttonInvest.textContent = "Invest NOW";
+buttonInvest.textContent = "Check your wallet";
 document.body.appendChild(buttonInvest);
 
 
@@ -59,14 +59,14 @@ button3.addEventListener('click', function(event) {
     event.preventDefault(); 
     document.body.classList.add("fade-out"); 
     setTimeout(() => {
-        window.location.href = "invstlgin/lgn.html";
+        window.location.href = "../../../../SmitE-coin/src/index.html";
     }, 500);
 });
 buttonInvest.addEventListener('click', function(event) {
     event.preventDefault(); 
     document.body.classList.add("fade-out"); 
     setTimeout(() => {
-        window.location.href = "invstlgin/lgn.html";
+        window.location.href = "logWallet/logWallet.html";
     }, 500);
 });
 

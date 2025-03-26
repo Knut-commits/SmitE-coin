@@ -1,7 +1,7 @@
 document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from refreshing the page
+    event.preventDefault(); 
 
-    // Get the username and password entered by the user
+    // get info
     let enteredUsername = document.getElementById("loginUsername").value;
     let enteredPassword = document.getElementById("loginPassword").value;
 

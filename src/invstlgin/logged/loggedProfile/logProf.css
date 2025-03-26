@@ -91,9 +91,10 @@ body{
     background-color: #33ffcf;
 }
 #img{
+    position:absolute;
     display: block;
     margin-top: 180px; 
-    margin-left: 180px;
+    margin-left: 50px;
     width: 150px;
     height: 150px;
     border-radius:50%;
@@ -107,8 +108,8 @@ body{
     border-radius: 10px; 
     cursor: pointer;
     position: absolute;
-    left:500px;
-    top:155px;
+    left:450px;
+    top:235px;
     width:300px;
     height:25px;
 }
@@ -121,8 +122,8 @@ body{
     border-radius: 10px; 
     cursor: pointer;
     position: absolute;
-    left:500px;
-    top:230px;
+    left:450px;
+    top:305px;
     width:300px;
     height:25px;
 }
@@ -135,8 +136,8 @@ body{
     border-radius: 10px; 
     cursor: pointer;
     position: absolute;
-    left:500px;
-    top:305px;
+    left:450px;
+    top:375px;
     width:300px;
     height:25px;
 }

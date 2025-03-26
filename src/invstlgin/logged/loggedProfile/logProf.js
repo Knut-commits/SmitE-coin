@@ -18,10 +18,49 @@ button3.id = "button3";
 button3.textContent = "Back to main";
 document.body.appendChild(button3);
 
-let img = document.createElement('img');
-img.id = "img";
-img.src = 'pfp1.jpg';
-document.body.appendChild(img);
+
+let savedImg = localStorage.getItem("selectedProfilePic");
+
+console.log("Saved Image:", savedImg);  // Check the value
+
+if (savedImg) {
+    let img = document.createElement('img');
+    img.id = "img";
+    img.src = savedImg;
+    img.style.width = '300px'; 
+    img.style.height = '300px'; 
+    img.style.borderRadius = '50%';  
+    document.body.appendChild(img);
+} else {
+    console.log("No image selected or not stored in localStorage.");
+}
+
+let savedUser = localStorage.getItem("username");
+
+console.log("Username:", savedUser);  // Check the value
+
+if (savedUser) {
+    let user = document.createElement('div');
+    user.id = "user"; 
+    user.textContent = savedUser;
+    document.body.appendChild(user);
+} else {
+    console.log("No image selected or not stored in localStorage.");
+}
+
+let savedEmail = localStorage.getItem("email");
+
+console.log("Email:", savedEmail);  // Check the value
+
+if (savedEmail) {
+    let email = document.createElement('div');
+    email.id = "email"; 
+    email.textContent = savedEmail;
+    document.body.appendChild(email);
+} else {
+    console.log("No image selected or not stored in localStorage.");
+}
+
 
 
 

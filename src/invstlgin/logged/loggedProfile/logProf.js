@@ -61,6 +61,19 @@ if (savedEmail) {
     console.log("No image selected or not stored in localStorage.");
 }
 
+let savedPass = localStorage.getItem("password");
+
+console.log("Password:", savedPass);  
+
+if (savedPass) {
+    let pass = document.createElement('div');
+    pass.id = "pass"; 
+    pass.textContent = savedPass;
+    document.body.appendChild(pass);
+} else {
+    console.log("No image selected or not stored in localStorage.");
+}
+
 
 
 

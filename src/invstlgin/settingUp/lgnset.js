@@ -94,6 +94,31 @@ function updateProfilePicture(imgElement) {
     pfpDisplay.style.transition = 'all 0.3s ease';
 }
 
+let savedUser = localStorage.getItem("username");
+
+console.log("Email:", savedUser);  // Check the value
+
+if (savedUser) {
+    let user = document.createElement('div');
+    user.id = "confirmUser"; 
+    user.textContent = "Your Username: " + savedUser;
+    document.body.appendChild(user);
+} else {
+    console.log("No image selected or not stored in localStorage.");
+}
+
+let savedPass = localStorage.getItem("password");
+
+console.log("Passoerd:", savedPass);  // Check the value
+
+if (savedPass) {
+    let pass = document.createElement('div');
+    pass.id = "confirmPassword"; 
+    pass.textContent = "Your Password: " + savedPass;
+    document.body.appendChild(pass);
+} else {
+    console.log("No image selected or not stored in localStorage.");
+}
 // Handle confirm button click
 confirm1.addEventListener('click', function (event) {
     event.preventDefault();

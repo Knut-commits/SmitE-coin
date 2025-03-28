@@ -109,7 +109,7 @@ if (savedUser) {
 
 let savedPass = localStorage.getItem("password");
 
-console.log("Passoerd:", savedPass);  // Check the value
+console.log("Password:", savedPass);  // Check the value
 
 if (savedPass) {
     let pass = document.createElement('div');

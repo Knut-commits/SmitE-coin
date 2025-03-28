@@ -38,7 +38,7 @@ class Blockchain:
 
     def deploy_contract(self, contract_code):
         # adds a contrat to the pending list
-        contract = Smart_Contract(contract_code)
+        contract = Smart_contract(contract_code)
         self.pending_contracts.append(contract)
         return "Contract dpeloyed pending mining"
 

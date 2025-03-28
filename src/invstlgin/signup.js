@@ -14,6 +14,7 @@ document.getElementById("signupForm").addEventListener("submit", function(event)
     }
 
     // Store user data (for now, local storage)
+    
     localStorage.setItem("username", username);
     localStorage.setItem("email", email);
     localStorage.setItem("password", password);

@@ -102,6 +102,7 @@ button4.addEventListener('click', function(event) {
     document.getElementById("confirmBuyAmount").addEventListener("click", function() {
         let enteredAmount = document.getElementById("buyAmountInput").value;
         if (enteredAmount && enteredAmount > 0) {
+            localStorage.setItem("numberOfCoins", enteredAmount);
             alert("You have successfully bought " + enteredAmount + " SmitE coin!");
         } else {
             alert("Please enter a valid amount.");
@@ -142,7 +143,7 @@ button5.addEventListener('click', function(event) {
     document.getElementById("confirmSellAmount").addEventListener("click", function() {
         let enteredAmount = document.getElementById("sellAmountInput").value;
         if (enteredAmount && enteredAmount > 0) { 
-            // Add logic to check if the user has enough SmitE coins to sell
+            localStorage.getItem(numberOfCoins);
             alert("You have successfully sold " + enteredAmount + " SmitE coin!");
         } else {
             alert("Please enter a valid amount.");

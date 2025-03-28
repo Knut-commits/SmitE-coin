@@ -2,6 +2,8 @@ let img = document.createElement('img');
 img.id = 'img';
 img.src = 'SmitEcoin.png';
 document.body.appendChild(img);
+console.log(img.src);
+
 
 let cryptoGraph = document.createElement('img');
 cryptoGraph.id = 'cryptoGraph';
@@ -71,6 +73,25 @@ button3.addEventListener('click', function(event) {
     }, 500);
 });
 
+// Initialize numberOfCoins if it doesn't exist
+if (localStorage.getItem("numberOfCoins") === null) {
+    localStorage.setItem("numberOfCoins", "0"); // Store as string
+}
+
+let savedCoin = localStorage.getItem("numberOfCoins"); // Always returns a string
+
+console.log("Current Coin: ", savedCoin);  // Check the value
+
+// Check if savedCoin is not null (it's always a string, even if "0")
+if (savedCoin !== null) {  
+    let cCoin = document.createElement('div');
+    cCoin.id = "currentCoin"; 
+    cCoin.textContent = "You currently have: " + savedCoin;
+    document.body.appendChild(cCoin);
+} else {
+    console.log("didn't work");
+}
+
 button4.addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -99,13 +120,19 @@ button4.addEventListener('click', function(event) {
         overlay.remove();
     });
 
+
+
     document.getElementById("confirmBuyAmount").addEventListener("click", function() {
         let enteredAmount = document.getElementById("buyAmountInput").value;
         if (enteredAmount && enteredAmount > 0) {
-            localStorage.setItem("numberOfCoins", enteredAmount);
+            let temp = localStorage.getItem("numberOfCoins");
+            let tempEntered = Number(enteredAmount) + Number(temp);
+            localStorage.setItem("numberOfCoins", tempEntered);
             alert("You have successfully bought " + enteredAmount + " SmitE coin!");
+            location.reload();
         } else {
             alert("Please enter a valid amount.");
+            location.reload();
         }
         
         overlay.remove();
@@ -143,8 +170,18 @@ button5.addEventListener('click', function(event) {
     document.getElementById("confirmSellAmount").addEventListener("click", function() {
         let enteredAmount = document.getElementById("sellAmountInput").value;
         if (enteredAmount && enteredAmount > 0) { 
-            localStorage.getItem(numberOfCoins);
+            let temp1 = localStorage.getItem("numberOfCoins");
+            temp2 = Number(temp1) - Number(enteredAmount);
+            if(temp2 <0){
+                alert("You don't have that many coins!");
+                location.reload();
+            }
+            else{
             alert("You have successfully sold " + enteredAmount + " SmitE coin!");
+            localStorage.setItem("numberOfCoins",temp2);
+            location.reload();
+        }
+            
         } else {
             alert("Please enter a valid amount.");
         }

@@ -9,6 +9,9 @@ CREATE TABLE users(
     passwords TEXT NOT NULL,
     balance DECIMAL(10,2),
     transaction_count INT NOT NULL
+    image_name VARCHAR(255),
+    image_type VARCHAR(10) NOT NULL DEFAULT 'jpg' 
+        CHECK (LOWER(image_type) IN ('jpg', 'jpeg')),
 );
 
 CREATE TABLE transactions(
@@ -27,19 +30,3 @@ CREATE TABLE daily_transactions(
     transaction_count INT NOT NULL,
     PRIMARY KEY(user_id, date_time)
 );
-
-
-USE users;
-GO
-
-CREATE PROCEDURE dbo.selectuserdata
-AS
-BEGIN
-    SELECT * FROM dbo.users;
-END;
-GO
-
-EXEC dbo.selectuserdata;
-GO
-
-SELECT * FROM transactions

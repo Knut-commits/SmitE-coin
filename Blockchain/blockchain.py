@@ -34,14 +34,14 @@ class Blockchain:
             contract_id = len(self.deployed_contracts) + 1
             self.deployed_contracts[contract_id]= contract
         #now the miner needs rewards    
-        self.pending_transactions=[{ "network",  miner_address,  10}]
+        self.pending_transactions.append([{ "sender":"network",  "receiver": miner_address, "amount": 10}])
         self.pending_contracts=[]
 
     def deploy_contract(self, contract_code):
         # adds a contrat to the pending list
         contract = Smart_contract(contract_code)
         self.pending_contracts.append(contract)
-        return "Contract dpeloyed pending mining"
+        return "Contract deployed pending mining"
 
     def execute_contract(self, contract_id, function_name, context={}):
         # executes a deployed smart contract function

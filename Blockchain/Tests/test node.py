@@ -25,5 +25,5 @@ def test_execute_smart_contract(client):
     json_data = response.get_json()
 
     # Check if the response is OK and includes a message
-    assert response.status_code == 200  #200 means succesfull
+    assert response.status_code == 200  #200 means succesfull6
     assert "message" in json_data

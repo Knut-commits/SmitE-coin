@@ -48,6 +48,28 @@ class Blockchain:
             return self.deployed_contracts[contract_id].execute(function_name, context)
         return "Contract not found"
 
-
+    def add_transaction(self, sender, receiver, amount):
+        # Update balances
+        if sender != "SYSTEM":
+            if self.balances.get(sender, 0) < amount:
+                return False  # Not enough funds
         
+            self.balances[sender] -= amount
+        
+        self.balances[receiver] = self.balances.get(receiver, 0) + amount
+        
+        # Add transaction
+        tx = {"sender": sender, "receiver": receiver, "amount": amount}
+        block = Block(len(self.chain), self.chain[-1].hash, [tx], [], time.time())
+        self.chain.append(block)
+        return True
+    
+    def buy_tokens(self, user, fiat_amount, token_price):
+        tokens_to_buy = fiat_amount / token_price
+        return self.add_transaction("SYSTEM", user, tokens_to_buy)
+    
+    def sell_tokens(self, user, token_amount, token_price):
+        return self.add_transaction(user, "SYSTEM", token_amount)
+    
+    
 

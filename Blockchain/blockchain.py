@@ -11,6 +11,7 @@ class Blockchain:
         self.pending_contracts=[] #contracts waitin to be mined
         self.deployed_contracts=[] 
         self.difficulty= 4  # this is minning diffculty and this menas 4 zeros is reuired at teh end of hash
+        self.balances = {} #dictionary shows how many tokens each address(user) owns
 
     def CreateGenesisBlock(self): 
         return Block(0,"0",[],[],time.time())
@@ -49,18 +50,18 @@ class Blockchain:
         return "Contract not found"
 
     def add_transaction(self, sender, receiver, amount):
-        # Update balances
-        if sender != "SYSTEM":
+        # update balances
+        if sender != "SYSTEM":  #if sender is system then no need to check balance
             if self.balances.get(sender, 0) < amount:
-                return False  # Not enough funds
+                return False  # not enough funds
         
             self.balances[sender] -= amount
         
         self.balances[receiver] = self.balances.get(receiver, 0) + amount
         
-        # Add transaction
-        tx = {"sender": sender, "receiver": receiver, "amount": amount}
-        block = Block(len(self.chain), self.chain[-1].hash, [tx], [], time.time())
+        # add transaction
+        transaction = {"sender": sender, "receiver": receiver, "amount": amount}
+        block = Block(len(self.chain), self.chain[-1].hash, [transaction], [], time.time())
         self.chain.append(block)
         return True
     

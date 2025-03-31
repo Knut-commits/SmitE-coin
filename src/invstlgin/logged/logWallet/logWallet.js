@@ -125,11 +125,16 @@ button4.addEventListener('click', function(event) {
     document.getElementById("confirmBuyAmount").addEventListener("click", function() {
         let enteredAmount = document.getElementById("buyAmountInput").value;
         if (enteredAmount && enteredAmount > 0) {
+            if(enteredAmount && enteredAmount <= 100000){
             let temp = localStorage.getItem("numberOfCoins");
             let tempEntered = Number(enteredAmount) + Number(temp);
             localStorage.setItem("numberOfCoins", tempEntered);
             alert("You have successfully bought " + enteredAmount + " SmitE coin!");
             location.reload();
+        }
+        else{
+            alert("You cannot buy that many coins in 1 sitting! MAX:100,000");
+        }
         } else {
             alert("Please enter a valid amount.");
             location.reload();
@@ -172,17 +177,26 @@ button5.addEventListener('click', function(event) {
         if (enteredAmount && enteredAmount > 0) { 
             let temp1 = localStorage.getItem("numberOfCoins");
             temp2 = Number(temp1) - Number(enteredAmount);
-            if(temp2 <0){
-                alert("You don't have that many coins!");
+            if(temp2 >=0){
+                if(enteredAmount && enteredAmount >100000){
+                    alert("You cannot sell that many coins in 1 sitting! MAX:100,000")
                 location.reload();
+                }
+                    else{
+                        alert("You have successfully sold " + enteredAmount + " SmitE coin!");
+                localStorage.setItem("numberOfCoins",temp2);
+                location.reload();
+                }
+                    
             }
             else{
-            alert("You have successfully sold " + enteredAmount + " SmitE coin!");
-            localStorage.setItem("numberOfCoins",temp2);
-            location.reload();
-        }
+                alert("You don't have that many coins!");
+            }
             
-        } else {
+        }
+
+            
+        else {
             alert("Please enter a valid amount.");
         }
         

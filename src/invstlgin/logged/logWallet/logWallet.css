@@ -30,9 +30,26 @@ body{
     width:300px;
     height:25px;
 }
+<<<<<<< HEAD
 
 
 
+=======
+<<<<<<< HEAD
+#img{
+    display: block;
+    position: absolute;
+    margin-top: 175px; 
+    right: 100px;
+    width: 50px;
+    height: 50px;
+}
+=======
+
+
+
+>>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
+>>>>>>> 32990137418271beac48b59d7c4ee94c57407c0e
 #OGbutton {
     background-color: #007acc;
     color: white;
@@ -208,6 +225,11 @@ body{
 #closePopup:hover {
     background: darkred;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 32990137418271beac48b59d7c4ee94c57407c0e
 #img {
     display: block;
     position: absolute;
@@ -218,3 +240,7 @@ body{
    
     z-index: 10;
 }
+<<<<<<< HEAD
+=======
+>>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
+>>>>>>> 32990137418271beac48b59d7c4ee94c57407c0e

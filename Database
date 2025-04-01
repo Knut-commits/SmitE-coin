@@ -9,6 +9,7 @@ CREATE TABLE users(
     passwords TEXT NOT NULL,
     balance DECIMAL(10,2),
     transaction_count INT NOT NULL
+    image LONGBLOB,
     image_name VARCHAR(255),
     image_type VARCHAR(10) NOT NULL DEFAULT 'jpg' 
         CHECK (LOWER(image_type) IN ('jpg', 'jpeg')),

@@ -44,9 +44,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("Login successful!");
                 window.location.href = "logged/logindex.html";
             } else {
+
                 alert("Invalid username or password.");
             }
         })
         .catch(error => console.error("Error:", error));
+        alert("If you see this msg and didn't see the invalid username or password then you need to start backend!");
+        window.location.href = "logged/logindex.html"; // delete thiswhen done js only for testing
+        
     });
 });

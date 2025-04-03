@@ -31,7 +31,7 @@ if (token) {
     .catch(error => console.error("Error:", error));
 } else {
     alert("User not logged in.");
-    window.location.href = "../lgn.html";
+    window.location.href = "../../lgn.html";
 }
 
 let backButton = document.createElement('button');

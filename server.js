@@ -16,6 +16,8 @@ const pool = new Pool({
   port: 5432,
 });
 
+
+//CRUD operations
 // getting all data
 app.get('/users', async (req, res) => {
   try {

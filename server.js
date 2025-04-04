@@ -1,8 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const { Pool } = require('pg');
 
 const app = express();
 const port = 3000;
+
+app.use(cors()); 
 
 // request
 app.use(express.json());
@@ -21,7 +24,7 @@ const pool = new Pool({
 // getting all data
 app.get('/users', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM users1');
+    const result = await pool.query('SELECT * FROM public.users1');
     res.json(result.rows);
   } catch (error) {
     console.error('Error fetching data:', error);

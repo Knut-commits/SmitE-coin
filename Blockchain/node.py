@@ -3,6 +3,7 @@ from blockchain import Blockchain
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from flask_cors import CORS  #allos corss orgin requists os backen can communcate iwth front end
 import os
 
 app = Flask(__name__)
@@ -10,7 +11,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # SQLite database
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
-
+CORS(app) #enables CORS for all routes
 blockchain = Blockchain()
 
 # User model
@@ -86,4 +87,4 @@ def execute_contract(contract_id,function_name):
 if __name__ == '__main__':
     app.run(debug=True)
     print("* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)")
->>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
+

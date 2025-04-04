@@ -76,9 +76,8 @@ def deploy_contract():
     response = blockchain.deploy_contract(contract_code)
     return jsonify({"message": response})
 
-
+# execute a functoin in a deployed smart contract
 @app.route('/execute_contract/<int:contract_id>/<string:function_name>', methods=['POST'])
-    # execute a functoin in a deployed smart contract
 def execute_contract(contract_id,function_name):
     context = request.json.get('context', {}) # if not context is provided it defualts to empty
     response = blockchain.execute_contract(contract_id, function_name, context)

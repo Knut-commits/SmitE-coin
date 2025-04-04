@@ -1,6 +1,26 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "pg": "^8.14.1"
-  }
+  },
+  "name": "smite-coin",
+  "version": "1.0.0",
+  "description": "SmitE coin is awesome\r E\r hiii\r eee\r skibidi",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Knut-commits/SmitE-coin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Knut-commits/SmitE-coin/issues"
+  },
+  "homepage": "https://github.com/Knut-commits/SmitE-coin#readme"
 }

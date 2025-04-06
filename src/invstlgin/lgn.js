@@ -33,14 +33,15 @@ document.addEventListener("DOMContentLoaded", function() {
         let enteredUsername = document.getElementById("loginUsername").value;
         let enteredPassword = document.getElementById("loginPassword").value;
 
-        fetch("http://localhost:5000/login", {
+        fetch("http://localhost:3000/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username: enteredUsername, password: enteredPassword })
         })
         .then(response => response.json())
         .then(data => {
-            if (data.success) {
+            console.log(data);
+            if (data.message === "Login successful") {
                 alert("Login successful!");
                 window.location.href = "logged/logindex.html";
             } else {
@@ -50,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error("Error:", error));
         alert("If you see this msg and didn't see the invalid username or password then you need to start backend! but you'll proceed for testing purposes. Tell me if theres any issues");
-        window.location.href = "logged/logindex.html"; // delete thiswhen done js only for testing
+        // window.location.href = "logged/logindex.html"; // delete thiswhen done js only for testing
         
     });
 });

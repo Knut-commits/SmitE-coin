@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM fully loaded and parsed");
     if (!signupForm) {
         console.error("Signup form not found!");
         return;
     }
 
     signupForm.addEventListener("submit", function (event) {
+        console.log("sibmit Button clicked outside!");
         event.preventDefault();
         let username = document.getElementById("signupUsername").value;
         let email = document.getElementById("signupEmail").value;
@@ -26,18 +28,34 @@ document.addEventListener("DOMContentLoaded", function () {
         confirmPasswordField.insertAdjacentElement("afterend", con1);
         console.log("Button added!");
 
-        con1.addEventListener("click", function () {
+            console.log("Button clicked inside!");
             alert("button is clicked!");
 
-            fetch("http://localhost:5000/register", {
+            // fetch("http://localhost:5000/register", {
+            //     method: "POST",
+            //     headers: { "Content-Type": "application/json" },
+            //     body: JSON.stringify({ username, email, password })
+            // })
+            //////jing
+            fetch("http://localhost:3000/users", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username, email, password })
+                body: JSON.stringify({ 
+                    email: email,        
+                    username: username,
+                    password: password,
+                    balance: 100,
+                    image: "",       
+                    transaction_count: 0
+                })
             })
-                .then((response) => response.json())
+
+/////
+                .then((response) => {response.json()})
                 .then((data) => {
                     alert(data.message);
-
+                    console.log(data);
+                    console.log(data.message);
                     if (data.message === "User registered successfully") {
                         localStorage.setItem("currentUser", username); // Store username
                         window.location.href = "settingUp/lgnset.html";
@@ -46,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 
                 .catch((error) => console.error("Error:", error));
                 window.location.href = "settingUp/lgnset.html"; // delete this for final testing (only used for testing rn)
-        });
+        ;
+        console.log("Button added outside!");
     });
 });

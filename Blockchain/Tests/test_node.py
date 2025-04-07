@@ -1,6 +1,9 @@
 import pytest
 
-from node import app
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))  #copilot told me to do this so i can run the tests from any directory
+from node import app   
 
 
 
@@ -28,4 +31,4 @@ def test_execute_smart_contract(client):
     # check if the response is OK and includes a message
     assert response.status_code == 200  #200 means succesfull
     assert "message" in json_data
->>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
+

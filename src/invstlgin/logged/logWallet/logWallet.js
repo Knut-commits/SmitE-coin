@@ -175,8 +175,7 @@ button4.addEventListener('click', function(event) {
         } else {
             alert("Please enter a valid amount.");
             location.reload();
->>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
->>>>>>> 32990137418271beac48b59d7c4ee94c57407c0e
+
         }
         
         overlay.remove();

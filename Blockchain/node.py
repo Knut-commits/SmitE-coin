@@ -66,7 +66,7 @@ def login():
 @app.route('/mine', methods=['GET'])
 def mine():
     blockchain.mine_pending_transactions("Miner1")
-    return jsonify({"message": "New block mined"})
+    return jsonify({"message": "New block mined!"})
 
 @app.route('/deploy_contract', methods=['POST'])
 def deploy_contract():

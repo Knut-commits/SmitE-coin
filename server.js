@@ -1,11 +1,8 @@
 const express = require('express');
-const cors = require('cors');
 const { Pool } = require('pg');
 
 const app = express();
 const port = 3000;
-
-app.use(cors()); 
 
 // request
 app.use(express.json());
@@ -19,12 +16,10 @@ const pool = new Pool({
   port: 5432,
 });
 
-
-//CRUD operations
 // getting all data
 app.get('/users', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM public.users1');
+    const result = await pool.query('SELECT * FROM users1');
     res.json(result.rows);
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -89,3 +84,8 @@ app.delete('/users/:email', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+<<<<<<< HEAD
+//find at http://localhost:3000/users
+//start server using node server.js
+=======
+>>>>>>> c2634c317a9c79e62b761d86abf1d77c0fe96e82

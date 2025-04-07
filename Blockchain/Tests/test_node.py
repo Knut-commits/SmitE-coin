@@ -4,6 +4,7 @@ from node import app
 
 
 
+
 @pytest.fixture #this ensures this methos runs before the tests
 def client():
     # create a test client for the Flask app
@@ -20,10 +21,11 @@ def test_mine_block(client):
     assert "New block mined!" in json_data["message"]
 
 def test_execute_smart_contract(client):
-    # Sends a POST request to execute a smart contract function
+    # Sends a POST request to execute a smart contratc function
     response = client.post('/execute_contract/1/test_function', json={"context": {"x": 2}})
     json_data = response.get_json()
 
-    # Check if the response is OK and includes a message
-    assert response.status_code == 200  #200 means succesfull6
+    # check if the response is OK and includes a message
+    assert response.status_code == 200  #200 means succesfull
     assert "message" in json_data
+>>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101

@@ -19,14 +19,15 @@
   </style>
 </head>
 <body>
-  <h1>User Management</h1>
+  <h1>All Users</h1>
   
   <button id="getUsersBtn">Get Users</button>
-  <button id="createUserBtn">Create User</button>
-  <button id="updateUserBtn">Update User</button>
-  <button id="deleteUserBtn">Delete User</button>
-
+  <div id="deleteUserSection">
+    <input type="text" id="deleteEmailInput" placeholder="Enter email to delete" />
+    <button id="deleteUserBtn">Delete User</button>
+  </div>
   <pre id="output">Click a button to perform an action...</pre>
+  <pre id="output"></pre>
 
   <script>
     function displayOutput(data) {
@@ -39,54 +40,6 @@
         .then(response => response.json())
         .then(data => displayOutput(data))
         .catch(error => console.error('Error fetching users:', error));
-    });
-
-    // new user cerate
-    document.getElementById('createUserBtn').addEventListener('click', () => {
-      const newUser = {
-        email: "newuser@example.com",
-        username: "newuser",
-        password: "securepassword",
-        balance: 100,
-        image: "base64EncodedImage", 
-        transaction_count: 0
-      };
-
-      fetch('http://localhost:3000/users', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newUser)
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('User created:', data);
-        displayOutput(data);
-      })
-      .catch(error => console.error('Error creating user:', error));
-    });
-
-    // Update
-    document.getElementById('updateUserBtn').addEventListener('click', () => {
-      const updatedData = {
-        username: "updatedUsername",
-        password: "newpassword",
-        balance: 150,
-        image: "updatedBase64EncodedImage",
-        transaction_count: 5
-      };
-
-      // also update
-      fetch('http://localhost:3000/users/newuser@example.com', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updatedData)
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('User updated:', data);
-        displayOutput(data);
-      })
-      .catch(error => console.error('Error updating user:', error));
     });
 
     // Delete

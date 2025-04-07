@@ -49,8 +49,13 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         })
         .catch(error => console.error("Error:", error));
+<<<<<<< HEAD
+    
+        // window.location.href = "logged/logindex.html"; // delete thiswhen done js only for testing
+=======
         alert("If you see this msg and didn't see the invalid username or password then you need to start backend! but you'll proceed for testing purposes. Tell me if theres any issues");
         window.location.href = "logged/logindex.html"; // delete thiswhen done js only for testing
+>>>>>>> c2634c317a9c79e62b761d86abf1d77c0fe96e82
         
     });
 });

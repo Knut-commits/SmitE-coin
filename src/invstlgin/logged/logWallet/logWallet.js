@@ -1,23 +1,16 @@
+// Create and add images
 let img = document.createElement('img');
 img.id = 'img';
 img.src = 'SmitEcoin.png';
 document.body.appendChild(img);
-<<<<<<< HEAD
 console.log(img.src);
-
-=======
-<<<<<<< HEAD
-=======
-console.log(img.src);
-
->>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
->>>>>>> 32990137418271beac48b59d7c4ee94c57407c0e
 
 let cryptoGraph = document.createElement('img');
 cryptoGraph.id = 'cryptoGraph';
 cryptoGraph.src = 'cryptograph.png';
 document.body.appendChild(cryptoGraph);
 
+// Create and add buttons
 let button = document.createElement('button');
 button.textContent = 'About us';
 button.id = "OGbutton";
@@ -48,11 +41,13 @@ button5.id = "button5";
 button5.textContent = "Sell SmitE Coin!";
 document.body.appendChild(button5);
 
+// Toggle popup function (not used below, but available)
 function togglePopup() {
     let popup = document.getElementById("popup");
     popup.style.display = (popup.style.display === "block") ? "none" : "block";
 }
 
+// Navigation button event listeners
 button.addEventListener('click', function(event) {
     event.preventDefault(); 
     document.body.classList.add("fade-out"); 
@@ -81,21 +76,14 @@ button3.addEventListener('click', function(event) {
     }, 500);
 });
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 32990137418271beac48b59d7c4ee94c57407c0e
 // Initialize numberOfCoins if it doesn't exist
 if (localStorage.getItem("numberOfCoins") === null) {
-    localStorage.setItem("numberOfCoins", "0"); // Store as string
+    localStorage.setItem("numberOfCoins", "0"); // Stored as string
 }
+let savedCoin = localStorage.getItem("numberOfCoins");
+console.log("Current Coin: ", savedCoin);
 
-let savedCoin = localStorage.getItem("numberOfCoins"); // Always returns a string
-
-console.log("Current Coin: ", savedCoin);  // Check the value
-
-// Check if savedCoin is not null (it's always a string, even if "0")
+// Display current coin count
 if (savedCoin !== null) {  
     let cCoin = document.createElement('div');
     cCoin.id = "currentCoin"; 
@@ -105,13 +93,11 @@ if (savedCoin !== null) {
     console.log("didn't work");
 }
 
-<<<<<<< HEAD
-=======
->>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
->>>>>>> 32990137418271beac48b59d7c4ee94c57407c0e
+// Buy SmitE Coin button event listener
 button4.addEventListener('click', function(event) {
     event.preventDefault();
 
+    // Create overlay and popup for buying coins
     let overlay = document.createElement("div");
     overlay.classList.add("popup-overlay");
 
@@ -123,69 +109,42 @@ button4.addEventListener('click', function(event) {
         <button id="confirmBuyAmount">Confirm</button>
         <button id="closePopup">Close</button>
     `;
-
     overlay.appendChild(popup);
     document.body.appendChild(overlay);
 
+    // Close popup if clicking outside or on the Close button
     overlay.addEventListener("click", function(event) {
         if (event.target === overlay) {
-            overlay.remove(); 
+            overlay.remove();
         }
     });
-
     document.getElementById("closePopup").addEventListener("click", function() {
         overlay.remove();
     });
 
-<<<<<<< HEAD
-
-
-=======
-<<<<<<< HEAD
->>>>>>> 32990137418271beac48b59d7c4ee94c57407c0e
     document.getElementById("confirmBuyAmount").addEventListener("click", function() {
-        let enteredAmount = document.getElementById("buyAmountInput").value;
-        if (enteredAmount && enteredAmount > 0) {
-            if(enteredAmount && enteredAmount <= 100000){
-            let temp = localStorage.getItem("numberOfCoins");
-            let tempEntered = Number(enteredAmount) + Number(temp);
-            localStorage.setItem("numberOfCoins", tempEntered);
-            alert("You have successfully bought " + enteredAmount + " SmitE coin!");
-            location.reload();
+        let enteredAmount = Number(document.getElementById("buyAmountInput").value);
+        if (!enteredAmount || enteredAmount <= 0) {
+            alert("Please enter a valid amount.");
+            return;
         }
-        else{
+        if (enteredAmount > 100000) {
             alert("You cannot buy that many coins in 1 sitting! MAX:100,000");
+            return;
         }
-        } else {
-            alert("Please enter a valid amount.");
-<<<<<<< HEAD
-            location.reload();
-=======
-=======
-
-
-    document.getElementById("confirmBuyAmount").addEventListener("click", function() {
-        let enteredAmount = document.getElementById("buyAmountInput").value;
-        if (enteredAmount && enteredAmount > 0) {
-            let temp = localStorage.getItem("numberOfCoins");
-            let tempEntered = Number(enteredAmount) + Number(temp);
-            localStorage.setItem("numberOfCoins", tempEntered);
-            alert("You have successfully bought " + enteredAmount + " SmitE coin!");
-            location.reload();
-        } else {
-            alert("Please enter a valid amount.");
-            location.reload();
->>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
->>>>>>> 32990137418271beac48b59d7c4ee94c57407c0e
-        }
-        
-        overlay.remove();
+        let currentCoins = Number(localStorage.getItem("numberOfCoins"));
+        let newTotal = currentCoins + enteredAmount;
+        localStorage.setItem("numberOfCoins", newTotal);
+        alert("You have successfully bought " + enteredAmount + " SmitE coin" + (enteredAmount > 1 ? "s" : "") + "!");
+        location.reload();
     });
 });
 
+// Sell SmitE Coin button event listener
 button5.addEventListener('click', function(event) {
     event.preventDefault();
 
+    // Create overlay and popup for selling coins
     let overlay = document.createElement("div");
     overlay.classList.add("popup-overlay");
 
@@ -197,69 +156,37 @@ button5.addEventListener('click', function(event) {
         <button id="confirmSellAmount">Confirm</button>
         <button id="closePopup">Close</button>
     `;
-
     overlay.appendChild(popup);
     document.body.appendChild(overlay);
 
+    // Close popup if clicking outside or on the Close button
     overlay.addEventListener("click", function(event) {
         if (event.target === overlay) {
-            overlay.remove(); 
+            overlay.remove();
         }
     });
-
     document.getElementById("closePopup").addEventListener("click", function() {
         overlay.remove();
     });
 
     document.getElementById("confirmSellAmount").addEventListener("click", function() {
-        let enteredAmount = document.getElementById("sellAmountInput").value;
-        if (enteredAmount && enteredAmount > 0) { 
-<<<<<<< HEAD
-            let temp1 = localStorage.getItem("numberOfCoins");
-            temp2 = Number(temp1) - Number(enteredAmount);
-            if(temp2 >=0){
-                if(enteredAmount && enteredAmount >100000){
-                    alert("You cannot sell that many coins in 1 sitting! MAX:100,000")
-                location.reload();
-                }
-                    else{
-                        alert("You have successfully sold " + enteredAmount + " SmitE coin!");
-                localStorage.setItem("numberOfCoins",temp2);
-                location.reload();
-                }
-                    
-            }
-            else{
-                alert("You don't have that many coins!");
-            }
-            
-        }
-
-            
-        else {
-=======
-<<<<<<< HEAD
-            localStorage.getItem(numberOfCoins);
-            alert("You have successfully sold " + enteredAmount + " SmitE coin!");
-=======
-            let temp1 = localStorage.getItem("numberOfCoins");
-            temp2 = Number(temp1) - Number(enteredAmount);
-            if(temp2 <0){
-                alert("You don't have that many coins!");
-                location.reload();
-            }
-            else{
-            alert("You have successfully sold " + enteredAmount + " SmitE coin!");
-            localStorage.setItem("numberOfCoins",temp2);
-            location.reload();
-        }
-            
->>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
-        } else {
->>>>>>> 32990137418271beac48b59d7c4ee94c57407c0e
+        let enteredAmount = Number(document.getElementById("sellAmountInput").value);
+        if (!enteredAmount || enteredAmount <= 0) {
             alert("Please enter a valid amount.");
+            return;
         }
-        
-        overlay.remove();
+        if (enteredAmount > 100000) {
+            alert("You cannot sell that many coins in 1 sitting! MAX:100,000");
+            return;
+        }
+        let currentCoins = Number(localStorage.getItem("numberOfCoins"));
+        if (enteredAmount > currentCoins) {
+            alert("You don't have that many coins!");
+            return;
+        }
+        let newTotal = currentCoins - enteredAmount;
+        localStorage.setItem("numberOfCoins", newTotal);
+        alert("You have successfully sold " + enteredAmount + " SmitE coin" + (enteredAmount > 1 ? "s" : "") + "!");
+        location.reload();
     });
 });

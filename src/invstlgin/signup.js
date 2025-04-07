@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Button added!");
 
             console.log("Button clicked inside!");
-            alert("button is clicked!");
+            alert("Signup form submitted!");
 
             // fetch("http://localhost:5000/register", {
             //     method: "POST",

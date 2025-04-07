@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         })
         .catch(error => console.error("Error:", error));
-        alert("If you see this msg and didn't see the invalid username or password then you need to start backend! but you'll proceed for testing purposes. Tell me if theres any issues");
+    
         // window.location.href = "logged/logindex.html"; // delete thiswhen done js only for testing
         
     });

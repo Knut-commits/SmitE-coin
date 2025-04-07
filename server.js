@@ -1,13 +1,8 @@
 const express = require('express');
-//node.js handling https and web server
-const cors = require('cors');
 const { Pool } = require('pg');
 
 const app = express();
 const port = 3000;
-
-app.use(cors()); 
-//allow cross-origin requests server
 
 // request
 app.use(express.json());
@@ -21,12 +16,10 @@ const pool = new Pool({
   port: 5432,
 });
 
-
-//CRUD operations
-// getting all data from user1 table
+// getting all data
 app.get('/users', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM public.users1');
+    const result = await pool.query('SELECT * FROM users1');
     res.json(result.rows);
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -49,54 +42,50 @@ app.post('/users', async (req, res) => {
   }
 });
 
-
-app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+// edit/update user
+app.put('/users/:email', async (req, res) => {
+  const { email } = req.params;
+  const { username, password, balance, image, transaction_count } = req.body;
   try {
     const result = await pool.query(
-      'SELECT * FROM public.users1 WHERE email = $1 AND password = $2',
-      [username, password]
+      `UPDATE users1 
+       SET username = $1, password = $2, balance = $3, image = $4, transaction_count = $5
+       WHERE email = $6 RETURNING *`,
+      [username, password, balance, image, transaction_count, email]
     );
-    if (result.rows.length > 0) {
-      res.status(200).json({ message: 'Login successful' });
+    if (result.rowCount === 0) {
+      res.status(404).json({ error: 'User not found' });
     } else {
-      res.status(401).json({ message: 'Invalid username or password' });
+      res.json(result.rows[0]);
     }
   } catch (error) {
-    console.error('Error during login:', error);
+    console.error('Error updating data:', error);
     res.status(500).json({ error: error.message });
   }
 });
-//create is in signup.js
 
-//edit/update is in web page
+// remove user
+app.delete('/users/:email', async (req, res) => {
+  const { email } = req.params;
+  try {
+    const result = await pool.query('DELETE FROM users1 WHERE email = $1', [email]);
+    if (result.rowCount === 0) {
+      res.status(404).json({ error: 'User not found' });
+    } else {
+      res.json({ message: 'User deleted successfully' });
+    }
+  } catch (error) {
+    console.error('Error deleting data:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
 
-// remove user (delete)
-// document.getElementById('deleteUserBtn').addEventListener('click', () => {
-//   // Retrieve the email from the input field
-//   const emailToDelete = document.getElementById('deleteEmailInput').value.trim();
-  
-//   // email validation
-//   if (!emailToDelete) {
-//     alert("Please enter an email to delete");
-//     return;
-//   }
-  
-//   // request delete to API
-//   fetch(`http://localhost:3000/users/${encodeURIComponent(emailToDelete)}`, {
-//     method: 'DELETE'
-//   })
-//   .then(response => response.json())
-//   .then(data => {
-//     console.log('User deleted:', data);
-//     displayOutput(data);
-//   })
-//   .catch(error => console.error('Error deleting user:', error));
-// });
-
-// start server web
+// start server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+<<<<<<< HEAD
 //find at http://localhost:3000/users
 //start server using node server.js
+=======
+>>>>>>> c2634c317a9c79e62b761d86abf1d77c0fe96e82

@@ -11,7 +11,10 @@ class Blockchain:
         self.pending_contracts=[] #contracts waitin to be mined
         self.deployed_contracts=[] 
         self.difficulty= 4  # this is minning diffculty and this menas 4 zeros is reuired at teh end of hash
+<<<<<<< HEAD
+=======
         self.balances = {} #dictionary shows how many tokens each address(user) owns
+>>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
 
     def CreateGenesisBlock(self): 
         return Block(0,"0",[],[],time.time())
@@ -34,14 +37,24 @@ class Blockchain:
             contract_id = len(self.deployed_contracts) + 1
             self.deployed_contracts[contract_id]= contract
         #now the miner needs rewards    
+<<<<<<< HEAD
+        self.pending_transactions=[{ "network",  miner_address,  10}]
+=======
         self.pending_transactions.append([{ "sender":"network",  "receiver": miner_address, "amount": 10}])
+>>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
         self.pending_contracts=[]
 
     def deploy_contract(self, contract_code):
         # adds a contrat to the pending list
+<<<<<<< HEAD
+        contract = Smart_Contract(contract_code)
+        self.pending_contracts.append(contract)
+        return "Contract dpeloyed pending mining"
+=======
         contract = Smart_contract(contract_code)
         self.pending_contracts.append(contract)
         return "Contract deployed pending mining"
+>>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
 
     def execute_contract(self, contract_id, function_name, context={}):
         # executes a deployed smart contract function
@@ -49,6 +62,10 @@ class Blockchain:
             return self.deployed_contracts[contract_id].execute(function_name, context)
         return "Contract not found"
 
+<<<<<<< HEAD
+
+        
+=======
     def add_transaction(self, sender, receiver, amount):
         # update balances
         if sender != "SYSTEM":  #if sender is system then no need to check balance
@@ -73,4 +90,5 @@ class Blockchain:
         return self.add_transaction(user, "SYSTEM", token_amount)
     
     
+>>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101
 

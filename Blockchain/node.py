@@ -1,9 +1,38 @@
+<<<<<<< HEAD
+#implement a flask based blockchain node acts as a bridge between blockchain and api rewuets
+from blockchain import Blockchain
+from flask import Flask, request, jsonify
 
+app = Flask(__name__)
+blockchain = Blockchain()
+
+@app.route('/mine',methods=['GET'])#allows users to access the mine url via a Get request
+def mine():
+    blockchain.mine_pending_transactions("Miner1")
+    return jsonify({"message":"new block mined"})
+
+@app.route('/deploy_contract', methods=['POST'])# only repsonds to post reqeusts which sends data rtaher than recieves
+def deploy_contract():
+    # deploys a new smart contract
+    contract_code = request.json.get('code') 
+    response = blockchain.deploy_contract(contract_code)
+    return jsonify({"message": response})
+
+
+@app.route('/execute_contract/<int:contract_id>/<string:function_name>', methods=['POST'])
+    # execute a functoin in a deployed smart contract
+def execute_contract(contract_id,function_name):
+    context = request.json.get('context', {}) # if not context is provided it defualts to empty
+    response = blockchain.execute_contract(contract_id, function_name, context)
+    return jsonify({"message": response}) #converts to json format so there cna be a API response
+
+if __name__ == '__main__':
+    app.run(debug=True)
+=======
 from blockchain import Blockchain
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from flask_cors import CORS  #allos corss orgin requists os backen can communcate iwth front end
 import os
 
 app = Flask(__name__)
@@ -11,7 +40,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # SQLite database
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
-CORS(app) #enables CORS for all routes
+
 blockchain = Blockchain()
 
 # User model
@@ -65,26 +94,24 @@ def login():
 
     return jsonify({"message": "Login successful", "username": user.username, "picture": user.picture}), 200
 
-@app.route('/mine',methods=['GET'])#allows users to access the mine url via a Get request
+@app.route('/mine', methods=['GET'])
 def mine():
     blockchain.mine_pending_transactions("Miner1")
-    return jsonify({"message":"new block mined"})
+    return jsonify({"message": "New block mined"})
 
-@app.route('/deploy_contract', methods=['POST'])# only repsonds to post reqeusts which sends data rtaher than recieves
+@app.route('/deploy_contract', methods=['POST'])
 def deploy_contract():
-    # deploys a new smart contract
-    contract_code = request.json.get('code') 
+    contract_code = request.json.get('code')
     response = blockchain.deploy_contract(contract_code)
     return jsonify({"message": response})
 
-# execute a functoin in a deployed smart contract
 @app.route('/execute_contract/<int:contract_id>/<string:function_name>', methods=['POST'])
-def execute_contract(contract_id,function_name):
-    context = request.json.get('context', {}) # if not context is provided it defualts to empty
+def execute_contract(contract_id, function_name):
+    context = request.json.get('context', {})
     response = blockchain.execute_contract(contract_id, function_name, context)
-    return jsonify({"message": response}) #converts to json format so there cna be a API response
+    return jsonify({"message": response})
 
 if __name__ == '__main__':
     app.run(debug=True)
     print("* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)")
-
+>>>>>>> d92bde214d4ae6bb50d4abc02fafcbb9ebd01101

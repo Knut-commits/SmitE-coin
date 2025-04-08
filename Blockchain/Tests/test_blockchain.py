@@ -20,3 +20,33 @@ def test_add_block():
     blockchain.addBlock(new_block)
     assert len(blockchain.chain) == 2 #should ahve 2 blocks (geneisis and added)
     assert blockchain.chain[-1].transactions == transactions # transactiosn should be up to date with last block
+
+
+def test_buy_tokens():
+    blockchain = Blockchain()
+    user = "1user"
+    fiat_amount = 100
+    token_price = 20
+
+    result = blockchain.buy_tokens(user,fiat_amount,token_price) #the result is buying some tokens
+
+    assert result == True # this should be  true if trnasaction was sucessfull
+    
+    # checking user balance
+
+    new_tokens = fiat_amount/ token_price
+
+    assert blockchain.balances[user] == new_tokens #balance should equal fiat amoiutn / token price
+
+def test_sell_tokens():
+    blockchain= Blockchain()
+    user = "1user"
+    token_amount = 10
+    token_price = 5
+
+    blockchain.balances[user]= 20 # give user teh tokens to sell
+
+    result = blockchain.sell_tokens(user,token_amount,token_price)
+
+    assert result == True # this would be true if transaction wnet through
+    assert blockchain.balances[user] == 10 # user should only have 10 as 10 have been sold

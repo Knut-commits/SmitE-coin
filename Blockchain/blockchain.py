@@ -65,7 +65,7 @@ class Blockchain:
         self.chain.append(block)
         return True
     
-    def buy_tokens(self, user, fiat_amount, token_price):
+    def buy_tokens(self, user, fiat_amount, token_price): #fiat amount means it is not backed by any commoditeis
         tokens_to_buy = fiat_amount / token_price
         return self.add_transaction("SYSTEM", user, tokens_to_buy)
     

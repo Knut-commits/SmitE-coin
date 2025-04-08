@@ -1,26 +1,37 @@
-document.getElementById("signupForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form from refreshing
+document.addEventListener("DOMContentLoaded", function () {
+    let signupForm = document.getElementById("signupForm");
 
-    // Get input values
-    let username = document.getElementById("signupUsername").value;
-    let email = document.getElementById("signupEmail").value;
-    let password = document.getElementById("signupPassword").value;
-    let confirmPassword = document.getElementById("signupConfirmPassword").value;
-
-    // Password validation
-    if (password !== confirmPassword) {
-        alert("Passwords do not match!");
+    if (!signupForm) {
+        console.error("Signup form not found!");
         return;
     }
 
-    // Store user data (for now, local storage)
-    
-    localStorage.setItem("username", username);
-    localStorage.setItem("email", email);
-    localStorage.setItem("password", password);
+    signupForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    alert("Account created successfully!");
+        let username = document.getElementById("signupUsername").value;
+        let email = document.getElementById("signupEmail").value;
+        let password = document.getElementById("signupPassword").value;
+        let confirmPassword = document.getElementById("signupConfirmPassword").value;
 
-    // Redirect to login page
-    window.location.href = "settingUp/lgnset.html";
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        fetch("http://localhost:5000/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, email, password })
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            alert(data.message);
+            if (data.message === "User registered successfully") {
+                localStorage.setItem("currentUser", username);
+                window.location.href = "settingUp/lgnset.html";
+            }
+        })
+        .catch((error) => console.error("Error:", error));
+    });
 });

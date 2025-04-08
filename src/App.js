@@ -72,3 +72,17 @@ buttonInvest.addEventListener('click', function(event) {
 
 
 
+/////////jing
+fetch('http://localhost:3000/data')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Data received:', data);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
